@@ -6,13 +6,8 @@ import SeasonDisplay from './SeasonDisplay';
 // The reason we're extending React is because it subclasses React.Component,
 // borrowing its functionality into our App class.
 class App extends React.Component {
-  constructor(props) {
-    super(props);
 
-    // INITIAL ASSIGNMENT IS THE ONLY TIME WE DIRECTLY ASSIGN TO THIS.STATE
-    this.state = { lat: null, errorMessage: '' };
-    // EVERY OTHER TIME WE USE setState!
-  }
+  state = { lat: null, errorMessage: '' };
 
   // React recommends that you don't do date loading inside constructor.
   // Instead, put it within componentDidMount - convention.
