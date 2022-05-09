@@ -1,6 +1,5 @@
 import './SeasonDisplay.css';
 import React from 'react';
-import { Sun, Snowflake } from 'react-icons/fa';
 
 // extract as much logic from the function as possible
 const getSeason = (lat, month) => {
