@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './LoadingSpinner';
 // import "semantic-ui-css/semantic.min.css";
 
 // The reason we're extending React is because it subclasses React.Component,
@@ -23,12 +24,12 @@ class App extends React.Component {
   // It loads JSX and NOTHING ELSE.
   render() {
     if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>
+      return <Spinner text='Please enable geolocation permissions.' />
     }
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat}/>
     }
-    return <div>Loading...</div>
+    return <Spinner text='Loading...' />;
   }
 }
 createRoot(document.getElementById('root')).render(<App />)

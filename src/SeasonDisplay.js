@@ -1,3 +1,4 @@
+import './SeasonDisplay.css';
 import React from 'react';
 import { Sun, Snowflake } from 'react-icons/fa';
 
@@ -13,11 +14,11 @@ const getSeason = (lat, month) => {
 const seasonConfig = {
   summer: {
     text: "Let's hit the beach!",
-    iconName: 'fas fa-sun'
+    iconName: 'fas fa-sun fa-10x'
   },
   winter: {
     text: "Brr, it's cold!",
-    iconName: 'fas fa-snowflake'
+    iconName: 'fas fa-snowflake fa-10x'
   }
 };
 
@@ -26,10 +27,10 @@ const SeasonDisplay = props => {
     const { text, iconName } = seasonConfig[season] // {text, iconName}
 
     return (
-      <div>
-        <i className={`${iconName}`} />
+      <div className={`season-display ${season}`}>
+        <i className={`icon-left ${iconName}`} />
         <h1>{text}</h1>
-        <i className={`${iconName}`} />
+        <i className={`icon-right ${iconName}`} />
       </div>
     );
 }
