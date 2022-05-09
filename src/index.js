@@ -19,10 +19,8 @@ class App extends React.Component {
       err => this.setState({ errorMessage: err.message })
     );
   }
-  // Never put any work inside the render method, because it's goning to be called all the dang time
-  // Render gets called much more than rest of code runs. So minimize work in here.
-  // It loads JSX and NOTHING ELSE.
-  render() {
+
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <Spinner text='Please enable geolocation permissions.' />
     }
@@ -30,6 +28,12 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat}/>
     }
     return <Spinner text='Loading...' />;
+  }
+  // Never put any work inside the render method, because it's goning to be called all the dang time
+  // Render gets called much more than rest of code runs. So minimize work in here.
+  // It loads JSX and NOTHING ELSE.
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 createRoot(document.getElementById('root')).render(<App />)
