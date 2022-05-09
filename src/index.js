@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import SeasonDisplay from './SeasonDisplay';
+// import "semantic-ui-css/semantic.min.css";
 
 // The reason we're extending React is because it subclasses React.Component,
 // borrowing its functionality into our App class.
